@@ -10,6 +10,13 @@ public class App {
         WebDriver driver = WebDriverFactory.create();
         SudokuService service = new SudokuService(driver, new BacktrackingSolver());
 
+        long startTime = System.currentTimeMillis();
+
         service.run();
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("Time taken: " + (endTime - startTime) + "ms");
+
+        driver.quit();
     }
 }
